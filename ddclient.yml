@@ -1,0 +1,48 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ddclient
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ddclient-deployment
+  namespace: ddclient
+  labels:
+    app: ddclient
+  annotations:
+    kubesailEditorUid: 612f41f7-58b6-4d45-9c08-735c70be6b4c
+spec:
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ddclient
+  template:
+    metadata:
+      labels:
+        app: ddclient
+    spec:
+      nodeName: kube2
+      volumes:
+        - name: ddclient-config-file
+          secret:
+            secretName: ddclient-secret
+      containers:
+        - name: ddclient
+          image: linuxserver/ddclient
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /config
+              name: ddclient-config-file
+          resources:
+            requests:
+              cpu: 10m
+              memory: 64Mi
+            limits:
+              cpu: 50m
+              memory: 128Mi

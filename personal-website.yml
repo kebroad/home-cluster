@@ -50,7 +50,6 @@ spec:
   tls:
     - hosts:
         - cluster.kevinbroadbridge.com
-        - kbcluster.ddns.net
       secretName: lets-enrypt-tls
 
 ---
