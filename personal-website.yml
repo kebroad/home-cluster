@@ -45,15 +45,6 @@ spec:
                 name: personal-website-service
                 port:
                   number: 80
-    - http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: personal-website-service
-                port:
-                  number: 80
   #must be deleted on initial deployment but added after deploying cert manager yaml
   #NOTE: Make sure 443 and 80 open on router
   tls:
@@ -82,7 +73,7 @@ spec:
         app: personal-website
     spec:
       containers:
-        - image: registry.gitlab.com/kebroad/personal-website:1.6
+        - image: ghcr.io/kebroad/personal-website:master
           name: personal-website
           resources:
             requests:
