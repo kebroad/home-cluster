@@ -73,7 +73,7 @@ spec:
         app: personal-website
     spec:
       containers:
-        - image: ghcr.io/kebroad/personal-website:master
+        - image: ghcr.io/kebroad/personal-website:sha-4e98d17
           name: personal-website
           resources:
             requests:
