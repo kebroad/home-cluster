@@ -244,6 +244,7 @@ metadata:
     app.kubernetes.io/version: 0.44.0
     app.kubernetes.io/managed-by: Helm
     app.kubernetes.io/component: controller
+    service.beta.kubernetes.io/do-loadbalancer-hostname: "cluster.kevinbroadbridge.com"
   name: ingress-nginx-controller-admission
   namespace: ingress-nginx
 spec:

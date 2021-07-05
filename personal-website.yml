@@ -72,7 +72,7 @@ spec:
         app: personal-website
     spec:
       containers:
-        - image: ghcr.io/kebroad/personal-website:sha-d4b44cd
+        - image: ghcr.io/kebroad/personal-website@sha256:517fe135a6298db1669b91d99da49f94de82503e086bbbc3d1b35f27050695ad
           name: personal-website
           resources:
             requests:
